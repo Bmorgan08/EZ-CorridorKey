@@ -38,10 +38,6 @@ class DecoderHead(nn.Module):
         
         n, _, h, w = c4.shape
         
-        # Hiera features are channel-last? No, timm usually outputs BCHW if features_only=True?
-        # Actually Hiera implementation in timm might return BCHW.
-        # Let's verify in forward. Assume BCHW for now based on previous check output `torch.Size([1, 112, 56, 56])`.
-        
         # Resize to C1 size (which is H/4)
         _c4 = self.linear_c4(c4.flatten(2).transpose(1, 2)).transpose(1, 2).view(n, -1, c4.shape[2], c4.shape[3])
         _c4 = F.interpolate(_c4, size=c1.shape[2:], mode='bilinear', align_corners=False)
