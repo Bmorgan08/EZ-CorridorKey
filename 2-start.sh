@@ -6,7 +6,7 @@ cd "$SCRIPT_DIR"
 
 if [ ! -d ".venv" ]; then
     echo "[ERROR] .venv not found. "
-    echo "attempting to run installation script"
+    echo "Attempting to run installation script."
     chmod +x "$SCRIPT_DIR/1-install.sh"
     $SCRIPT_DIR/1-install.sh
     if [ ! -d ".venv" ]; then
@@ -15,7 +15,7 @@ if [ ! -d ".venv" ]; then
     fi
 fi
 
-echo "[INFO] Checking for updates..."
+echo "[INFO] Checking for updates."
 
 chmod +x "$SCRIPT_DIR/3-update.sh"
 $SCRIPT_DIR/3-update.sh

@@ -4,7 +4,7 @@ cd /d "%~dp0"
 
 if not exist ".venv\Scripts\activate.bat" (
     echo [ERROR] .venv not found.
-    echo Attempting to run installation script...
+    echo Attempting to run installation script.
     call 1-install.bat
     if not exist ".venv\Scripts\activate.bat" (
         echo [ERROR] Installation failed. Please run 1-install.bat manually and check for errors.
@@ -13,7 +13,7 @@ if not exist ".venv\Scripts\activate.bat" (
     )
 )
 
-echo [INFO] Checking for updates...
+echo [INFO] Checking for updates.
 call 3-update.bat
 
 REM Add local ffmpeg to PATH if present
